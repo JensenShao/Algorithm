@@ -15,7 +15,7 @@ public class DivideSearch {
         }
 
         else if (v.compareTo(array[mid])<0){
-            return binarySearch(array, l, mid,v);
+            return binarySearch(array, l, mid-1,v);
         }
             else {
             return binarySearch(array,mid+1,r,v);

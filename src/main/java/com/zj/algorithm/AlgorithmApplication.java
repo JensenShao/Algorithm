@@ -11,9 +11,11 @@ public class AlgorithmApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlgorithmApplication.class, args);
-		Integer[] array = AlgorithmHelper.generateArray(1000, 1, 100);
-		selectionSort(array);
-		insertSort(array);
+		Integer[] array = AlgorithmHelper.generateArray(100, 1, 100);
+//		selectionSort(array);
+//		insertSort(array);
+
+		bubbleSort(array);
 	}
 
 	public static void selectionSort(Integer[] array){
@@ -34,6 +36,15 @@ public class AlgorithmApplication {
 
 		AlgorithmHelper.printArray(array);
 		insertionSortProxy.sort(array);
+		AlgorithmHelper.printArray(array);
+	}
+
+	static void bubbleSort(Integer[] array){
+		CglibProxy proxy = new CglibProxy();
+		BubbleSort bubbleSort = new BubbleSort();
+		BubbleSort bubbleSortProxy = (BubbleSort)proxy.getInstance(bubbleSort);
+		AlgorithmHelper.printArray(array);
+		bubbleSortProxy.sort(array);
 		AlgorithmHelper.printArray(array);
 	}
 }
